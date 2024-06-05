@@ -23,16 +23,30 @@ def main():
         if opcion == "1":
             # Mostrar la imagen en color
             cv2.imshow('Foto', frame)
+            # Guardar la foto
+            filename = "foto_a_color.jpg"
+            cv2.imwrite(filename, frame)
+            print(f"Foto guardada como {filename}")
         elif opcion == "2":
-            # Mostrar la imagen a escala de grises
+            # Convertir la imagen a escala de grises
             gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+            # Mostrar la imagen a escala de grises
             cv2.imshow('Foto', gray)
+            # Guardar la foto
+            filename = "foto_a_escala_de_grises.jpg"
+            cv2.imwrite(filename, gray)
+            print(f"Foto guardada como {filename}")
         elif opcion == "3":
-            # Mostrar la imagen con efecto de caricatura
+            # Aplicar efecto de caricatura
             gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
             blur = cv2.GaussianBlur(gray, (0,0), 5)
             cartoon = cv2.divide(gray, blur, scale=256)
+            # Mostrar la imagen con efecto de caricatura
             cv2.imshow('Foto', cartoon)
+            # Guardar la foto
+            filename = "foto_caricatura.jpg"
+            cv2.imwrite(filename, cartoon)
+            print(f"Foto guardada como {filename}")
         elif opcion == "4":
             break
 
